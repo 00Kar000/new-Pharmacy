@@ -11,30 +11,17 @@ type authProps = {
   password: string;
 };
 
-export const createAdmin = async () => {
-  const password = "Imblessed100%";
-  const hashedPassword = await bcryptjs.hash(password, 10);
 
-  try {
-    connectToDb();
-    await AdminDB.create({
-      username: "Karen",
-      password: hashedPassword,
-    });
-  } catch (error) {
-    console.log(error);
-  }
-};
 
 export const auth = async ({ username, password }: authProps) => {
   const cookiesList = cookies();
-
+  connectToDb()
   if (!username || !password) return;
 
   const admin = await AdminDB.findOne({ username });
-  const checkPassword = await bcryptjs.compare(password, admin.password);
+  const checkedPassword = admin.password === password
 
-  if (!admin || !checkPassword) {
+  if (!admin || !checkedPassword) {
     throw new Error("Username or password is incorrect");
   }
   const oneDay = 24 * 60 * 60 * 1000;
@@ -49,7 +36,7 @@ export const auth = async ({ username, password }: authProps) => {
 
 export const middleware = async () => {
   const cookiesList = cookies();
-
+  connectToDb()
   try {
     const token = cookiesList.get("jwt")?.value;
 
