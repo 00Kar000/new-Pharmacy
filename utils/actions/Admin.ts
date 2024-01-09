@@ -52,13 +52,14 @@ export const middleware = async () => {
   }
 };
 
-// export const logout = () => {
-//   const cookiesList = cookies();
+export const logout = () => {
+  const cookiesList = cookies();
+ connectToDb()
+  try {
+    cookiesList.set("jwt", " ", { expires: Date.now() });
+    return true;
+  } catch (error) {
+    return false;
+  }
+};
 
-//   try {
-//     const res = cookiesList.set("jwt", " ", { expires: Date.now() });
-//     return res;
-//   } catch (error) {
-//     return;
-//   }
-// };

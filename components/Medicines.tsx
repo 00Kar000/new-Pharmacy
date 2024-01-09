@@ -4,8 +4,8 @@ import Card from "./Card";
 import Link from "next/link";
 import { fetchAllMedicine } from "@/utils/actions/Medicine";
 import { CiLogout } from "react-icons/ci";
-// import { logout } from "@/utils/actions/Admin";
-import { useRouter } from "next/router";
+import { logout } from "@/utils/actions/Admin";
+import { useRouter } from "next/navigation";
 
 type Data = {
   _id: string;
@@ -16,6 +16,7 @@ type Data = {
 const Medicines = () => {
   const [data, setData] = useState<Data[] | null[]>([]);
   const [query, setQuery] = useState("");
+  const router = useRouter()
 
   const fetchAll = async () => {
     const res = await fetchAllMedicine();
@@ -40,10 +41,12 @@ const Medicines = () => {
       
     if(!confirmRes) return
 
-    return console.log("REMOVED")
-  };
+    return (
+      logout(),
+      router.back()
+    )
 
-  
+  };
 
   return (
     <div className="h-screen w-[100%] flex justify-center items-center flex-col">
