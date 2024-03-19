@@ -9,7 +9,7 @@ body {
 }
 
 #scroll {
-  overflow-x: scroll;
+  overflow: scroll;
 }
 #scroll::-webkit-scrollbar-thumb {
   background: rgb(6, 197, 6);
@@ -36,3 +36,5 @@ body {
 input {
   outline: none !important;
 }
+
+

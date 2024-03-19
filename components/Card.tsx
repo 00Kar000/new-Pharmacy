@@ -39,33 +39,37 @@ const Card = ({ id, name, group, number }: Props) => {
     }
     return router.push("/addMedicine");
   };
-
+  // max-sm:grid-cols-mobile
   return (
-    <div className="grid  max-w-2xl   max-h-[100px] max-sm:grid-cols-mobile   grid-cols-Card gap-x-5 relative border my-3 md:my-2 px-5 sm:px-2 py-2 rounded-sm shadow-sm shadow-white sm:min-w-[70%] md:min-w-[600px] ">
-      <h3 id="scroll" className="sm:border-r px-2 relative  overflow-scroll ">
+    <div className="grid  max-w-2xl   max-h-[100px] max-sm:flex max-sm:flex-col max-sm:gap-5 max-sm:min-h-[200px] max-sm:justify-between max-sm:w-[96%] rounded-md   grid-cols-Card gap-x-5 relative border my-3 md:my-2 px-5 sm:px-2 py-2  shadow-sm shadow-white sm:min-w-[70%] md:min-w-[600px] ">
+      <h3 id="scroll" className="sm:border-r px-2 relative  overflow-clip ">
         {name}
         <span className=" opacity-35 text-zinc-500 text-sm  mx-auto absolute -z-10 top-[50%] left-[50%]  -translate-x-[50%] -translate-y-[50%]">
           name
         </span>
       </h3>
-      <h4 id="scroll" className="sm:border-r relative overflow-scroll">
+      <h4 id="scroll" className="sm:border-r relative overflow-clip">
         {group}
         <span className=" opacity-35 text-zinc-500 text-sm  mx-auto absolute -z-10 top-[50%] left-[50%]  -translate-x-[50%] -translate-y-[50%]">
           group
         </span>
       </h4>
-      <p id="scroll" className="sm:border-r relative overflow-scroll">
+      <p id="scroll" className="sm:border-r relative  overflow-clip">
         {number}
         <span className=" opacity-35 text-zinc-500 text-sm  mx-auto absolute -z-10 top-[50%] left-[50%]  -translate-x-[50%] -translate-y-[50%]">
           number
         </span>
       </p>
-      <button onClick={() => handleClick()} className="text-green-400">
+      <button
+        onClick={() => handleClick()}
+        className="text-green-400 max-sm:-left-1  
+        max-sm:-top-3  max-sm:bg-zinc-600 max-sm:rounded-full max-sm:p-2 max-sm:text-center  max-sm:absolute"
+      >
         <FaUserEdit />
       </button>
       <button
         onClick={() => handleDelete(id)}
-        className=" text-red-400 text-2xl"
+        className=" text-red-400 text-2xl  max-sm:-top-3  max-sm:-right-1 max-sm:bg-zinc-700 max-sm:rounded-full max-sm:p-1  max-sm:absolute"
       >
         <MdDeleteForever />
       </button>

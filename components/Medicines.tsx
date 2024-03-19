@@ -82,7 +82,7 @@ const Medicines = () => {
           There Is No Result
         </h2>
       ) : (
-        <section className="flex absolute top-24 gap-x-5 w-full justify-center flex-wrap-reverse">
+        <section className="flex absolute top-24 gap-x-5 text-center  w-full justify-center flex-wrap-reverse">
           {filteredData.map((item) => (
             <Card
               key={item?._id}
