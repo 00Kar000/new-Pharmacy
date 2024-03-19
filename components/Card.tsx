@@ -41,20 +41,20 @@ const Card = ({ id, name, group, number }: Props) => {
   };
 
   return (
-    <div className="grid  max-w-2xl   max-h-[100px] max-sm:grid-cols-mobile   grid-cols-Card gap-x-5 relative border my-3 md:my-2 px-5 sm:px-2 py-2 rounded-sm shadow-sm shadow-white sm:min-w-[70%] md:min-w-[600px] xl:[500px]">
-      <h3 id="scroll" className="sm:border-r px-2 relative  overflow-auto ">
+    <div className="grid  max-w-2xl   max-h-[100px] max-sm:grid-cols-mobile   grid-cols-Card gap-x-5 relative border my-3 md:my-2 px-5 sm:px-2 py-2 rounded-sm shadow-sm shadow-white sm:min-w-[70%] md:min-w-[600px] ">
+      <h3 id="scroll" className="sm:border-r px-2 relative  overflow-scroll ">
         {name}
         <span className=" opacity-35 text-zinc-500 text-sm  mx-auto absolute -z-10 top-[50%] left-[50%]  -translate-x-[50%] -translate-y-[50%]">
           name
         </span>
       </h3>
-      <h4 id="scroll" className="sm:border-r relative overflow-auto">
+      <h4 id="scroll" className="sm:border-r relative overflow-scroll">
         {group}
         <span className=" opacity-35 text-zinc-500 text-sm  mx-auto absolute -z-10 top-[50%] left-[50%]  -translate-x-[50%] -translate-y-[50%]">
           group
         </span>
       </h4>
-      <p id="scroll" className="sm:border-r relative overflow-auto">
+      <p id="scroll" className="sm:border-r relative overflow-scroll">
         {number}
         <span className=" opacity-35 text-zinc-500 text-sm  mx-auto absolute -z-10 top-[50%] left-[50%]  -translate-x-[50%] -translate-y-[50%]">
           number

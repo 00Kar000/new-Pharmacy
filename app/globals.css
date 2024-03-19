@@ -21,7 +21,7 @@ body {
 }
 
 #scroll::-webkit-scrollbar-corner,
-#scroll::-webkit-scrollbar-button{
+#scroll::-webkit-scrollbar-button {
   background: transparent;
 }
 
@@ -31,4 +31,8 @@ body {
 #bodyScroll::-webkit-scrollbar-thumb {
   background: rgb(6, 197, 6);
   border-radius: 10px;
+}
+
+input {
+  outline: none !important;
 }
