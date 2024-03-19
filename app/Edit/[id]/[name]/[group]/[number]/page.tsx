@@ -16,8 +16,8 @@ const page = ({ params }: any) => {
   const { id, name, group, number } = params;
   const [data, setData] = useState({
     name,
-    group,
-    number,
+    group:"",
+    number:"",
   });
   const [error, setError] = useState(false);
   const router = useRouter();
@@ -92,7 +92,6 @@ const page = ({ params }: any) => {
             onFocus={() => setError(false)}
           />
         </div>
-
         <button
           type="submit"
           className=" border py-2 rounded-sm hover:bg-white hover:text-black"

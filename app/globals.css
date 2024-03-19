@@ -8,23 +8,27 @@ body {
   overflow-x: hidden !important;
 }
 
-@media screen and (max-width: 500px) {
-  #test {
-    overflow-x: scroll;
-  }
-  #test::-webkit-scrollbar-thumb {
-    background:rgb(6, 197, 6);
-    border-radius: 10px;
-  }
-  #test::-webkit-scrollbar {
-    height: 5px;
-  }
+#scroll {
+  overflow-x: scroll;
+}
+#scroll::-webkit-scrollbar-thumb {
+  background: rgb(6, 197, 6);
+  border-radius: 10px;
+}
+#scroll::-webkit-scrollbar {
+  height: 5px;
+  width: 7px;
+}
+
+#scroll::-webkit-scrollbar-corner,
+#scroll::-webkit-scrollbar-button{
+  background: transparent;
 }
 
 #bodyScroll::-webkit-scrollbar {
   width: 7px;
 }
 #bodyScroll::-webkit-scrollbar-thumb {
-  background:rgb(6, 197, 6);
+  background: rgb(6, 197, 6);
   border-radius: 10px;
 }
