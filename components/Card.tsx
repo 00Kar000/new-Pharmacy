@@ -14,17 +14,6 @@ type Props = {
 const Card = ({ id, name, group, number }: Props) => {
   const router = useRouter();
 
-  const handleClick = () => {
-    const newName = name
-      ?.replace(/[\/\,\֊\.\-\+/\{\}\s⬇️\\]/gim, "")
-      .split(" ")
-      .join("");
-    const newGroup = group?.replace(/[\/\,\֊\.\-\+/\{\}\s⬇️\\]/gim, "");
-    const newNumber = number?.replace(/[\/\,\֊\.\-\+/\{\}\s⬇️\\]/gim, "");
-
-    return router.push(`Edit/${id}/${newName}/${newGroup}/${newNumber}`);
-  };
-
   const handleDelete = async (id: string | undefined) => {
     const confirmRes = confirm("Delete this medicine?");
     const res = await middleware();
@@ -61,7 +50,7 @@ const Card = ({ id, name, group, number }: Props) => {
         </span>
       </p>
       <button
-        onClick={() => handleClick()}
+        onClick={() => router.push(`Edit/${id}`)}
         className="text-green-400 max-sm:-left-1  
         max-sm:-top-3  max-sm:bg-zinc-600 max-sm:rounded-full max-sm:p-2 max-sm:text-center  max-sm:absolute"
       >

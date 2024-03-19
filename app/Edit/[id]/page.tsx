@@ -1,6 +1,6 @@
 "use client";
 import { useState, SyntheticEvent, useEffect } from "react";
-import { createNewMedicine } from "@/utils/actions/Medicine";
+import { createNewMedicine, findOneMedicine } from "@/utils/actions/Medicine";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
@@ -13,14 +13,27 @@ const initialState = {
   number: "",
 };
 const page = ({ params }: any) => {
-  const { id, name, group, number } = params;
+  const { id } = params;
   const [data, setData] = useState({
-    name,
-    group:"",
-    number:"",
+    name: "",
+    group: "",
+    number: "",
   });
   const [error, setError] = useState(false);
   const router = useRouter();
+
+  const fetchMedicineData = async () => {
+    const medicineData = await findOneMedicine(id);
+    setData({
+      name: medicineData.name ?? "",
+      group: medicineData.group ?? "",
+      number: medicineData.number ?? "",
+    });
+  };
+
+  useEffect(() => {
+    fetchMedicineData();
+  }, []);
 
   const handleSubmit = async (e: SyntheticEvent) => {
     e.preventDefault();

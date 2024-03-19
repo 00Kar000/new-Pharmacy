@@ -11,8 +11,6 @@ type authProps = {
   password: string;
 };
 
-
-
 export const auth = async ({ username, password }: authProps) => {
   const cookiesList = cookies();
   connectToDb()

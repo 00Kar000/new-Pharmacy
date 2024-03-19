@@ -46,7 +46,6 @@ export const updateMedicine = async (
   id: string,
   { name, group, number }: Data
 ) => {
-
   try {
     connectToDb();
     await Medicine.findByIdAndUpdate(
@@ -60,6 +59,17 @@ export const updateMedicine = async (
         console.log("There is no data");
       }
     });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const findOneMedicine = async (id: string) => {
+  try {
+    connectToDb();
+    const data = await Medicine.findById(id);
+    if (!data) return null;
+    return data;
   } catch (error) {
     console.log(error);
   }
